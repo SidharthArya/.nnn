@@ -53,7 +53,7 @@ XDOTOOL_TIMEOUT=2
 PAGER=${PAGER:-"nvim -R"}
 NUKE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins/nuke"
 
-TERMINAL="urxvt -embed"
+TERMINAL="st -w"
 
 
 term_nuke () {
@@ -161,7 +161,7 @@ previewer_loop () {
                 fi
                 ;;
             inode/directory)
-                $TERMINAL "$XID" -e nnn "$FILE" &
+                $TERMINAL "$XID" -e bash -c "tree -L 2 \"$FILE\" | less" &
                 ;;
             text/*)
                 if [ -x "$NUKE" ] ; then
