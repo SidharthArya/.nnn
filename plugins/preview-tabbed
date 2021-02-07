@@ -183,11 +183,11 @@ previewer_loop () {
 
         # following lines are not needed with the bruteforce xdotool method
         ACTIVE_XID="$(xdotool getactivewindow)"
-        if [ $((ACTIVE_XID == XID)) -ne 0 ] ; then
-            xdotool windowactivate "$MAINWINDOW"
-        else
-            timeout "$XDOTOOL_TIMEOUT" xdotool behave "$XID" focus windowactivate "$MAINWINDOW" &
-        fi
+        # if [ $((ACTIVE_XID == XID)) -ne 0 ] ; then
+        #     xdotool windowactivate "$MAINWINDOW"
+        # else
+        #     timeout "$XDOTOOL_TIMEOUT" xdotool behave "$XID" focus windowactivate "$MAINWINDOW" &
+        # fi
     done
     kill "$TABBEDPID"
     kill_viewer
