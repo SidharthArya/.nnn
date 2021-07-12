@@ -65,7 +65,7 @@ start_tabbed () {
     FIFO="$(mktemp -u)"
     mkfifo "$FIFO"
 
-    tabbed > "$FIFO" &
+    tabbed -g 900x800+500+150 > "$FIFO" &
 
     jobs # Get rid of the "Completed" entries
 
