@@ -160,6 +160,20 @@ previewer_loop () {
                     term_nuke "$XID" "$FILE"
                 fi
                 ;;
+            application/json)
+                if which unzip >/dev/null 2>&1 ; then
+									$TERMINAL "$XID" -e bash -c "cat $FILE | jq -C | less" &
+                else
+                    term_nuke "$XID" "$FILE"
+                fi
+                ;;
+            application/zip)
+                if which unzip >/dev/null 2>&1 ; then
+									$TERMINAL "$XID" -e bash -c "unzip -l "$FILE" | less" &
+                else
+                    term_nuke "$XID" "$FILE"
+                fi
+                ;;
             inode/directory)
                 $TERMINAL "$XID" -e bash -c "tree -L 2 \"$FILE\" | less" &
                 ;;
