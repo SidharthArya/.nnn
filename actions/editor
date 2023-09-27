@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 FILE="$2/$1"
-notify-send $FILE
 nvim --server /tmp/nvim.pipe --remote-send "<Escape>:e $FILE<CR>" || ~/.config/bspwm/scripts/actions/editor.sh $FILE
 xdotool windowactivate $(xdo id -N Editor)
 
