@@ -7,4 +7,4 @@ export EDITOR=nvim
 export EDITOR1=~/.config/nnn/actions/editor
 export NNN_PLUG='m:mount;p:preview-tabbed;s:subtitles.sh;d:dragdrop;e:edit;z:z;f:fzcd;g:gpge;r:gitroot'
 export NNN_FIFO=/tmp/nnn.fifo
-#nnn -x
+nnn -x -g
