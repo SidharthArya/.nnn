@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 prompt="device name ['l' lists]: "
 lsblk
 ANDROID_DEVICES="$(gio mount -li | grep activation | awk -F= '{print $2}')"
-echo "$ANDROID_DEVICES" | bat
+echo "$ANDROID_DEVICES" | cat
 printf "\nEnsure you aren't still in the mounted device.\n"
 printf "%s" "$prompt"
 read -r dev
@@ -18,7 +18,7 @@ do
 	    fi
     elif [ "$dev" = "l" ]; then
         lsblk
-	echo $ANDROID_DEVICES | bat
+	echo $ANDROID_DEVICES | cat
     elif [ "$dev" = "q" ]; then
         exit
     else
